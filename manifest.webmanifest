@@ -1,0 +1,20 @@
+{
+  "name": "Пропал из Интернета",
+  "short_name": "Пропал",
+  "description": "Мессенджер Пропал из Интернета",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#050004",
+  "theme_color": "#050004",
+  "categories": ["social", "communication"],
+  "icons": [
+    {
+      "src": "/assets/site-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
