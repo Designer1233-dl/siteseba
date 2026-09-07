@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Пропал из Интернета</title>
+<style>
+:root{--bg:#0c1020;--panel:#141a2e;--panel2:#1b2340;--line:#2b3558;--text:#f7f8ff;--muted:#9aa7c7;--red:#ef3453;--red2:#a91535;--blue:#58a6ff;--green:#35d07f;--shadow:0 18px 70px #0008}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,#263158,#0b0f1d 45%,#05070d);color:var(--text);font:15px/1.4 Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;height:100vh;overflow:hidden}
+button,input,textarea,select{font:inherit}button{border:0;border-radius:14px;padding:10px 14px;background:var(--panel2);color:var(--text);cursor:pointer}button:hover{filter:brightness(1.12)}button.primary{background:linear-gradient(135deg,var(--red),var(--red2));box-shadow:0 8px 24px #ef345344}.ghost{background:#ffffff12}.danger{background:#5a1725}.ok{background:#153f2b}.tiny{padding:7px 10px;border-radius:10px;font-size:13px}.hide{display:none!important}.badge{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--blue);color:white;font-size:12px;font-weight:800;vertical-align:middle}.pill{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:5px 9px;color:var(--muted);font-size:12px}.app{height:100vh;display:grid;grid-template-columns:360px 1fr;background:#0004}.side{border-right:1px solid var(--line);background:#10162a;display:flex;flex-direction:column;min-width:0}.top{padding:16px;border-bottom:1px solid var(--line);display:grid;gap:12px}.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;border-radius:16px;background:linear-gradient(135deg,var(--red),#ff7a90);display:grid;place-items:center;font-weight:900;font-size:22px;box-shadow:0 12px 30px #ef345344}.brand h1{font-size:18px;margin:0}.brand p{margin:2px 0 0;color:var(--muted);font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap}.search{display:flex;gap:8px}.search input,.field input,.field textarea,.field select,.replybar input{width:100%;border:1px solid var(--line);background:#0b1020;color:var(--text);border-radius:14px;padding:11px 12px;outline:none}.list{overflow:auto;padding:8px;display:grid;gap:6px}.row{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:center;padding:10px;border-radius:16px;cursor:pointer}.row:hover,.row.active{background:#ffffff12}.avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;background:linear-gradient(135deg,#343d68,#151b31);display:grid;place-items:center;font-weight:800;color:#fff}.title{font-weight:750;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sub{color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.chat{min-width:0;display:flex;flex-direction:column}.chatHead{height:76px;border-bottom:1px solid var(--line);background:#10162add;display:flex;align-items:center;gap:12px;padding:12px 18px;backdrop-filter:blur(16px)}.spacer{flex:1}.messages{flex:1;overflow:auto;padding:22px;display:flex;flex-direction:column;gap:10px;background:linear-gradient(180deg,#0b1020aa,#0b1020dd),radial-gradient(circle at bottom right,#3b1730,#0000 40%)}.empty{margin:auto;text-align:center;color:var(--muted);max-width:430px}.bubble{max-width:min(650px,82%);padding:10px 12px;border-radius:18px;background:#1c2542;box-shadow:0 8px 24px #0003;align-self:flex-start}.bubble.mine{align-self:flex-end;background:linear-gradient(135deg,#ec3654,#a91535)}.meta{display:flex;gap:7px;align-items:center;justify-content:flex-end;color:#d9def0bb;font-size:11px;margin-top:5px}.from{font-size:12px;color:#9ed0ff;margin-bottom:3px}.reply{border-left:3px solid #ffffff88;padding-left:8px;margin-bottom:6px;color:#e8ebffcc;font-size:12px}.bubble img,.opened img{max-width:260px;max-height:260px;border-radius:14px;display:block;margin-top:7px;object-fit:cover}.composer{border-top:1px solid var(--line);padding:12px 16px;background:#10162a;display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:end}.composer textarea{min-height:44px;max-height:130px;resize:none;border:1px solid var(--line);background:#0b1020;color:var(--text);border-radius:16px;padding:12px;outline:none}.attach{display:grid;gap:7px;color:var(--muted);font-size:12px}.preview{display:flex;gap:8px;align-items:center;margin:0 16px 10px}.preview img{width:58px;height:58px;object-fit:cover;border-radius:12px}.auth{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:radial-gradient(circle at 20% 0,#3b1a38,#090b14 54%)}.card{width:min(460px,calc(100vw - 28px));background:#131a30;border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:var(--shadow)}.card h2,.drawer h2{margin:0 0 6px}.card p{color:var(--muted);margin:0 0 16px}.field{display:grid;gap:7px;margin:10px 0}.field label{font-size:13px;color:var(--muted)}.tabs{display:flex;gap:7px;margin:12px 0}.tabs button.active{background:var(--red)}.err{color:#ff9bae;min-height:20px}.modal{position:fixed;inset:0;background:#0009;display:grid;place-items:center;z-index:40;padding:18px}.drawer{width:min(1120px,96vw);max-height:92vh;overflow:auto;background:#11182d;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:18px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:12px}.box{background:#0c1224;border:1px solid var(--line);border-radius:18px;padding:13px}.box h3{margin:0 0 9px;font-size:16px}.adminMsg{display:grid;gap:5px;border-bottom:1px solid #ffffff12;padding:10px 0}.pinned{margin:0 8px 8px;padding:10px 12px;border:1px solid #ef345355;background:#ef345318;border-radius:16px;color:#ffd9df}.join{margin-left:auto}.locked{opacity:.55;pointer-events:none}.toast{position:fixed;right:18px;bottom:18px;z-index:70;background:#121a30;border:1px solid var(--line);border-radius:18px;padding:12px 14px;box-shadow:var(--shadow);max-width:360px}.mobileBack{display:none}@media(max-width:780px){.app{grid-template-columns:1fr}.side{display:flex}.chat{display:none}.app.open .side{display:none}.app.open .chat{display:flex}.mobileBack{display:inline-block}}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <aside class="side">
+    <div class="top">
+      <div class="brand">
+        <div class="logo">П</div>
+        <div><h1>Пропал из Интернета</h1><p>личные чаты, группы, каналы</p></div>
+      </div>
+      <div class="actions">
+        <button class="ghost" id="profileBtn">Профиль</button>
+        <button class="ghost hide" id="adminBtn">☰ Админ</button>
+        <button class="ghost" id="logoutBtn">Выйти</button>
+      </div>
+      <div class="actions">
+        <button class="tiny primary" id="newGroupBtn">+ группа</button>
+        <button class="tiny primary" id="newChannelBtn">+ канал</button>
+      </div>
+      <div class="search"><input id="searchInput" placeholder="Поиск @username, каналов и групп"><button id="searchBtn">Найти</button></div>
+    </div>
+    <div id="pinned" class="pinned hide"></div>
+    <div class="list" id="list"></div>
+  </aside>
+  <main class="chat">
+    <header class="chatHead">
+      <button class="ghost mobileBack" id="backBtn">←</button>
+      <div class="avatar" id="headAvatar">?</div>
+      <div>
+        <div class="title" id="headTitle">Выберите чат</div>
+        <div class="sub" id="headSub">или найдите пользователя/канал</div>
+      </div>
+      <div class="spacer"></div>
+      <button class="ghost hide" id="joinBtn">Вступить</button>
+    </header>
+    <section class="messages" id="messages"><div class="empty">Зарегистрируйтесь или войдите, потом выберите чат. Здесь появятся сообщения, фото, галочки прочтения и ответы.</div></section>
+    <div class="preview hide" id="replyPreview"><span class="pill">Ответ</span><span id="replyText"></span><button class="tiny ghost" id="clearReply">×</button></div>
+    <div class="preview hide" id="imagePreview"><img id="imageThumb" alt=""><label class="pill"><input type="checkbox" id="viewOnce"> одноразовое фото</label><button class="tiny ghost" id="clearImage">убрать</button></div>
+    <form class="composer" id="sendForm">
+      <label class="attach"><input type="file" id="fileInput" accept="image/*" hidden><button type="button" class="ghost" id="fileBtn">📎</button></label>
+      <textarea id="messageInput" placeholder="Сообщение"></textarea>
+      <button class="primary" type="submit">Отправить</button>
+    </form>
+  </main>
+</div>
+
+<section class="auth" id="auth">
+  <form class="card" id="authForm">
+    <div class="logo">П</div>
+    <h2 id="authTitle">Регистрация</h2>
+    <p>Создайте аккаунт или войдите. Админ: Vsevolod67 / vsevolodprapal.</p>
+    <div class="tabs"><button type="button" class="active" id="regTab">Регистрация</button><button type="button" id="loginTab">Вход</button></div>
+    <div class="field" id="nameField"><label>Имя</label><input id="nameInput" autocomplete="name" placeholder="Например, Всеволод"></div>
+    <div class="field"><label>Username</label><input id="usernameInput" autocomplete="username" placeholder="vsevolod67"></div>
+    <div class="field"><label>Пароль</label><input id="passwordInput" type="password" autocomplete="current-password" placeholder="минимум 8 символов"></div>
+    <div class="err" id="authErr"></div>
+    <button class="primary" type="submit" id="authSubmit">Зарегистрироваться</button>
+  </form>
+</section>
+
+<section class="modal hide" id="profileModal">
+  <form class="card" id="profileForm">
+    <h2>Профиль</h2>
+    <p>Настройки сохраняются на сервере. Уведомления работают, если браузер дал разрешение.</p>
+    <div class="field"><label>Имя</label><input id="profileName"></div>
+    <div class="field"><label>Username</label><input id="profileUsername"></div>
+    <div class="field"><label>О себе</label><textarea id="profileBio"></textarea></div>
+    <div class="field"><label>Аватар</label><input id="profileAvatarFile" type="file" accept="image/*"></div>
+    <label class="pill"><input type="checkbox" id="profileNotifications"> уведомления о сообщениях</label>
+    <div class="actions" style="margin-top:14px"><button class="primary" type="submit">Сохранить</button><button type="button" class="ghost" data-close="profileModal">Закрыть</button></div>
+  </form>
+</section>
+
+<section class="modal hide" id="communityModal">
+  <form class="card" id="communityForm">
+    <h2 id="communityTitle">Новая группа</h2>
+    <div class="field"><label>Название</label><input id="communityName"></div>
+    <div class="field"><label>Username</label><input id="communityUsername" placeholder="my_group"></div>
+    <div class="field"><label>Описание</label><textarea id="communityDescription"></textarea></div>
+    <div class="err" id="communityErr"></div>
+    <div class="actions"><button class="primary" type="submit">Создать</button><button type="button" class="ghost" data-close="communityModal">Закрыть</button></div>
+  </form>
+</section>
+
+<section class="modal hide" id="adminModal">
+  <div class="drawer">
+    <div class="actions"><h2 style="flex:1">Админ-панель</h2><button class="ghost" id="refreshAdmin">Обновить</button><button class="ghost" data-close="adminModal">Закрыть</button></div>
+    <div class="grid">
+      <div class="box"><h3>Пользователи</h3><div id="adminUsers"></div></div>
+      <div class="box"><h3>Каналы и группы</h3><div id="adminCommunities"></div></div>
+      <div class="box"><h3>Закреп для всех</h3><textarea id="pinText" placeholder="Текст объявления"></textarea><button class="primary" id="savePin">Закрепить текст</button><div class="sub">Канал закрепляется кнопкой рядом с каналом.</div></div>
+      <div class="box"><h3>Ответ от имени пользователя</h3><select id="replyFrom"></select><input id="replyTo" placeholder="@получатель" style="margin-top:8px"><input id="replyId" placeholder="id сообщения для ответа" style="margin-top:8px"><textarea id="replyAdminText" placeholder="Текст ответа" style="margin-top:8px"></textarea><button class="primary" id="sendAdminReply">Отправить от имени</button></div>
+    </div>
+    <div class="grid" style="margin-top:12px">
+      <div class="box"><h3>Сообщения</h3><div id="adminMessages"></div></div>
+      <div class="box"><h3>Журнал</h3><div id="adminAudit"></div></div>
+    </div>
+  </div>
+</section>
+
+<div id="toast" class="toast hide"></div>
+
+<script>
+'use strict';
+const $=s=>document.querySelector(s),$$=s=>Array.from(document.querySelectorAll(s));
+const TOKEN_KEY='lost-token',PROFILE_KEY='lost-profile';
+const state={token:localStorage.getItem(TOKEN_KEY)||'',me:null,mode:'register',active:null,image:'',reply:null,cursor:Date.now(),polling:false,lastNotified:new Set(),communityType:'group'};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const userLine=u=>`${esc(u.name)} ${u.verified?'<span class="badge" title="подтверждено">✓</span>':''}`;
+const communityKind=c=>c.type==='channel'?'канал':'группа';
+const when=t=>t?new Date(t).toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'}):'';
+const initial=x=>(x?.name||x?.username||'?').trim()[0]?.toUpperCase()||'?';
+function toast(text){$('#toast').textContent=text;$('#toast').classList.remove('hide');clearTimeout(toast.t);toast.t=setTimeout(()=>$('#toast').classList.add('hide'),3600)}
+async function api(path,opts={}){
+  const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),path.startsWith('/api/events')?31000:14000);
+  const headers={'Content-Type':'application/json'};if(state.token)headers.Authorization='Bearer '+state.token;
+  try{
+    const res=await fetch(path,{...opts,headers:{...headers,...(opts.headers||{})},signal:ctrl.signal});
+    const data=await res.json().catch(()=>({}));
+    if(!res.ok)throw Error(data.error||'Ошибка запроса');
+    return data;
+  }finally{clearTimeout(timer)}
+}
+function saveAuth(token,user){state.token=token;state.me=user;localStorage.setItem(TOKEN_KEY,token);localStorage.setItem(PROFILE_KEY,JSON.stringify(user));paintMe()}
+function paintMe(){
+  $('#auth').classList.toggle('hide',Boolean(state.me));
+  $('#adminBtn').classList.toggle('hide',state.me?.role!=='admin');
+  $('#profileBtn').textContent=state.me?`@${state.me.username}`:'Профиль';
+}
+async function bootstrap(){
+  const cached=localStorage.getItem(PROFILE_KEY);if(cached)try{state.me=JSON.parse(cached)}catch{}
+  paintMe();
+  if(state.token)try{const d=await api('/api/me');state.me=d.user;localStorage.setItem(PROFILE_KEY,JSON.stringify(d.user));paintMe();await loadAll();startEvents();pollUnread()}catch{logout(false)}
+  else await loadPinned();
+}
+function logout(reload=true){localStorage.removeItem(TOKEN_KEY);localStorage.removeItem(PROFILE_KEY);state.token='';state.me=null;if(reload)location.reload();else paintMe()}
+function setAuthMode(mode){state.mode=mode;$('#regTab').classList.toggle('active',mode==='register');$('#loginTab').classList.toggle('active',mode==='login');$('#nameField').classList.toggle('hide',mode==='login');$('#authTitle').textContent=mode==='login'?'Вход':'Регистрация';$('#authSubmit').textContent=mode==='login'?'Войти':'Зарегистрироваться';$('#authErr').textContent=''}
+$('#regTab').onclick=()=>setAuthMode('register');$('#loginTab').onclick=()=>setAuthMode('login');
+$('#authForm').onsubmit=async e=>{
+  e.preventDefault();$('#authErr').textContent='';
+  const body={username:$('#usernameInput').value,password:$('#passwordInput').value};if(state.mode==='register')body.name=$('#nameInput').value;
+  try{const d=await api(state.mode==='login'?'/api/login':'/api/register',{method:'POST',body:JSON.stringify(body)});saveAuth(d.token,d.user);toast('Готово, вы вошли');await loadAll();startEvents();pollUnread()}catch(err){$('#authErr').textContent=err.message}
+};
+$('#logoutBtn').onclick=()=>logout();
+async function loadAll(){await Promise.all([loadPinned(),loadConversations()])}
+async function loadPinned(){
+  try{const d=await api('/api/pinned');const el=$('#pinned');if(d.community){el.classList.remove('hide');el.innerHTML=`<b>Закреплённый канал:</b> ${userLine(d.community)} <span class="sub">@${esc(d.community.username)}</span>`;el.onclick=()=>openCommunity(d.community.username)}else if(d.pinned){el.classList.remove('hide');el.textContent=d.pinned}else el.classList.add('hide')}catch{}
+}
+function rowAvatar(x){return x.avatar?`<img class="avatar" src="${x.avatar}" alt="">`:`<div class="avatar">${esc(initial(x))}</div>`}
+function renderList(items,empty='Пока нет чатов'){
+  $('#list').innerHTML=items.length?items.join(''):`<div class="empty">${empty}</div>`;
+}
+function rowUser(x){
+  const u=x.user||x,last=x.last;
+  return `<div class="row" data-user="${esc(u.username)}">${rowAvatar(u)}<div><div class="title">${userLine(u)}</div><div class="sub">@${esc(u.username)}${last?' · '+esc(last.text||last.image?'фото':'сообщение'):''}</div></div><span class="sub">${last?when(last.createdAt):''}</span></div>`;
+}
+function rowCommunity(x){
+  const c=x.community||x,last=x.last;
+  return `<div class="row" data-community="${esc(c.username)}">${rowAvatar(c)}<div><div class="title">${c.type==='channel'?'📣':'👥'} ${userLine(c)}</div><div class="sub">${communityKind(c)} · @${esc(c.username)} · ${c.memberCount||0} участников${last?' · '+esc(last.text||last.image?'фото':'сообщение'):''}</div></div><span class="sub">${last?when(last.createdAt):''}</span></div>`;
+}
+async function loadConversations(){
+  const d=await api('/api/conversations');
+  renderList([...d.communities.map(rowCommunity),...d.conversations.map(rowUser)],'Начните с поиска пользователя, группы или канала');
+}
+$('#list').onclick=e=>{const row=e.target.closest('.row');if(!row)return;if(row.dataset.user)openUser(row.dataset.user);if(row.dataset.community)openCommunity(row.dataset.community)};
+$('#searchBtn').onclick=search;$('#searchInput').addEventListener('keydown',e=>{if(e.key==='Enter')search()});
+async function search(){
+  const q=$('#searchInput').value.trim();if(!q)return loadConversations();
+  const d=await api('/api/users?q='+encodeURIComponent(q));
+  renderList([...d.communities.map(rowCommunity),...d.users.map(rowUser)],'Ничего не найдено');
+}
+function openShell(title,sub,avatar){
+  $('#app').classList.add('open');$('#headTitle').innerHTML=title;$('#headSub').textContent=sub;$('#headAvatar').outerHTML=avatar;$('#joinBtn').classList.add('hide');$('#messages').innerHTML='<div class="empty">Загрузка…</div>';
+}
+async function openUser(username){
+  state.active={type:'user',username};clearReply();clearImage();
+  const d=await api('/api/messages?with='+encodeURIComponent(username));
+  openShell(userLine(d.user),'@'+d.user.username,rowAvatar(d.user).replace('class="avatar"','class="avatar" id="headAvatar"'));
+  renderMessages(d.messages);await loadConversations();
+}
+async function openCommunity(username){
+  state.active={type:'community',username};clearReply();clearImage();
+  const d=await api('/api/communities/'+encodeURIComponent(username)+'/messages');
+  openShell((d.community.type==='channel'?'📣 ':'👥 ')+userLine(d.community),`${communityKind(d.community)} · @${d.community.username} · ${d.community.memberCount} участников`,rowAvatar(d.community).replace('class="avatar"','class="avatar" id="headAvatar"'));
+  $('#joinBtn').classList.toggle('hide',d.community.isMember);$('#joinBtn').onclick=()=>joinCommunity(d.community.username);
+  $('#sendForm').classList.toggle('locked',d.community.type==='group'&&!d.community.isMember);
+  renderMessages(d.messages);await loadConversations();
+}
+async function joinCommunity(username){await api('/api/communities/'+encodeURIComponent(username)+'/join',{method:'POST',body:'{}'});toast('Вы вступили');openCommunity(username)}
+function findReply(id){return (state.messages||[]).find(m=>m.id===id)}
+function renderMessages(messages){
+  state.messages=messages;const box=$('#messages');
+  if(!messages.length){box.innerHTML='<div class="empty">Сообщений пока нет. Напишите первым.</div>';return}
+  box.innerHTML=messages.map(m=>{
+    const reply=m.replyTo?findReply(m.replyTo):null,from=!m.mine&&m.fromUser?`<div class="from">${userLine(m.fromUser)} @${esc(m.fromUser.username)}</div>`:'';
+    let media='';
+    if(m.image&&!m.viewOnce)media=`<img src="${m.image}" alt="изображение">`;
+    if(m.image&&m.viewOnce&&m.mine)media=`<img src="${m.image}" alt="одноразовое фото"><div class="sub">одноразовое фото</div>`;
+    if(m.image&&m.viewOnce&&!m.mine)media=`<button class="ghost tiny" data-view="${esc(m.id)}">Открыть фото один раз</button><div class="opened" id="opened-${esc(m.id)}"></div>`;
+    if(!m.image&&m.viewOnce)media='<div class="pill">Фото уже открыто</div>';
+    return `<article class="bubble ${m.mine?'mine':''}" data-mid="${esc(m.id)}">${from}${reply?`<div class="reply">${esc(reply.text||'фото')}</div>`:''}<div>${esc(m.text||'')}</div>${media}<div class="meta"><button class="tiny ghost" data-reply="${esc(m.id)}">ответ</button><span>${when(m.createdAt)}</span>${m.mine?`<span title="${m.readAt?'прочитано':'отправлено'}">${m.readAt?'✓✓':'✓'}</span>`:''}</div></article>`;
+  }).join('');
+  box.scrollTop=box.scrollHeight;
+}
+$('#messages').onclick=async e=>{
+  const r=e.target.closest('[data-reply]');if(r){const m=findReply(r.dataset.reply);state.reply=m;$('#replyPreview').classList.remove('hide');$('#replyText').textContent=m?.text||'фото';$('#messageInput').focus();return}
+  const v=e.target.closest('[data-view]');if(v){try{const d=await api('/api/messages/'+encodeURIComponent(v.dataset.view)+'/view',{method:'POST',body:'{}'});const el=$('#opened-'+CSS.escape(v.dataset.view));if(el)el.innerHTML=`<img src="${d.image}" alt="одноразовое фото">`;v.remove();toast('Фото открыто. После перезагрузки оно будет скрыто.')}catch(err){toast(err.message);if(state.active?.type==='user')openUser(state.active.username);else if(state.active)openCommunity(state.active.username)}}};
+$('#backBtn').onclick=()=>$('#app').classList.remove('open');
+function clearReply(){state.reply=null;$('#replyPreview').classList.add('hide');$('#replyText').textContent=''}$('#clearReply').onclick=clearReply;
+function clearImage(){state.image='';$('#fileInput').value='';$('#imagePreview').classList.add('hide');$('#viewOnce').checked=false}$('#clearImage').onclick=clearImage;$('#fileBtn').onclick=()=>$('#fileInput').click();
+$('#fileInput').onchange=()=>{
+  const f=$('#fileInput').files[0];if(!f)return;if(!f.type.startsWith('image/'))return toast('Выберите изображение');
+  const r=new FileReader();r.onload=()=>{state.image=r.result;$('#imageThumb').src=state.image;$('#imagePreview').classList.remove('hide')};r.readAsDataURL(f);
+};
+$('#sendForm').onsubmit=async e=>{
+  e.preventDefault();if(!state.active)return toast('Выберите чат');
+  const text=$('#messageInput').value.trim(),payload={text,image:state.image,viewOnce:$('#viewOnce').checked,replyTo:state.reply?.id||''};if(!text&&!state.image)return;
+  try{
+    if(state.active.type==='user')await api('/api/messages',{method:'POST',body:JSON.stringify({...payload,to:state.active.username})});
+    else await api('/api/communities/'+encodeURIComponent(state.active.username)+'/messages',{method:'POST',body:JSON.stringify(payload)});
+    $('#messageInput').value='';clearImage();clearReply();if(state.active.type==='user')await openUser(state.active.username);else await openCommunity(state.active.username);
+  }catch(err){toast(err.message)}
+};
+$('#profileBtn').onclick=()=>{
+  if(!state.me)return;$('#profileName').value=state.me.name||'';$('#profileUsername').value=state.me.username||'';$('#profileUsername').disabled=state.me.role==='admin';$('#profileBio').value=state.me.bio||'';$('#profileNotifications').checked=state.me.notifications!==false;$('#profileModal').classList.remove('hide');
+};
+$('#profileAvatarFile').onchange=()=>{};
+async function fileToData(file,max=500000){if(!file)return'';return await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>String(r.result).length>max?reject(Error('Файл слишком большой')):resolve(r.result);r.onerror=reject;r.readAsDataURL(file)})}
+$('#profileForm').onsubmit=async e=>{
+  e.preventDefault();let avatar='';try{avatar=await fileToData($('#profileAvatarFile').files[0])}catch(err){return toast(err.message)}
+  const notifications=$('#profileNotifications').checked;if(notifications&&'Notification'in window&&Notification.permission==='default')await Notification.requestPermission();
+  const d=await api('/api/me',{method:'PATCH',body:JSON.stringify({name:$('#profileName').value,username:$('#profileUsername').value,bio:$('#profileBio').value,avatar,notifications})});
+  state.me=d.user;localStorage.setItem(PROFILE_KEY,JSON.stringify(d.user));paintMe();$('#profileModal').classList.add('hide');toast('Профиль сохранён');
+};
+$$('[data-close]').forEach(b=>b.onclick=()=>$('#'+b.dataset.close).classList.add('hide'));
+$('#newGroupBtn').onclick=()=>showCommunityForm('group');$('#newChannelBtn').onclick=()=>showCommunityForm('channel');
+function showCommunityForm(type){state.communityType=type;$('#communityTitle').textContent=type==='channel'?'Новый канал':'Новая группа';$('#communityErr').textContent='';$('#communityName').value='';$('#communityUsername').value='';$('#communityDescription').value='';$('#communityModal').classList.remove('hide')}
+$('#communityForm').onsubmit=async e=>{
+  e.preventDefault();$('#communityErr').textContent='';
+  try{const d=await api('/api/communities',{method:'POST',body:JSON.stringify({type:state.communityType,name:$('#communityName').value,username:$('#communityUsername').value,description:$('#communityDescription').value})});$('#communityModal').classList.add('hide');await openCommunity(d.community.username);toast('Создано')}catch(err){$('#communityErr').textContent=err.message}
+};
+async function startEvents(){
+  if(state.polling)return;state.polling=true;
+  while(state.token){
+    try{const d=await api('/api/events?since='+state.cursor);state.cursor=d.cursor||Date.now();if(d.changed){if(state.active?.type==='user')await openUser(state.active.username);else if(state.active)await openCommunity(state.active.username);else await loadConversations();pollUnread()}}catch{await new Promise(r=>setTimeout(r,2500))}
+  }
+}
+async function pollUnread(){
+  if(!state.token||state.me?.notifications===false)return;
+  try{
+    const d=await api('/api/unread');
+    if(d.count)for(const m of d.messages){if(state.lastNotified.has(m.id))continue;state.lastNotified.add(m.id);if('Notification'in window&&Notification.permission==='granted')new Notification('Новое сообщение',{body:m.text||'Фото'});else toast('Новое сообщение')}
+  }catch{}
+}
+$('#adminBtn').onclick=async()=>{$('#adminModal').classList.remove('hide');await loadAdmin()};
+$('#refreshAdmin').onclick=loadAdmin;
+async function loadAdmin(){
+  const d=await api('/api/moderation/overview');state.admin=d;
+  $('#pinText').value=d.settings?.pinned||'';
+  $('#replyFrom').innerHTML=d.users.map(u=>`<option value="${esc(u.id)}">${esc(u.name)} @${esc(u.username)}</option>`).join('');
+  $('#adminUsers').innerHTML=d.users.map(u=>`<div class="box"><div class="title">${userLine(u)}</div><div class="sub">@${esc(u.username)} · ${u.role}${u.blocked?' · заблокирован':''}</div><div class="actions"><button class="tiny ok" data-au="verify" data-id="${esc(u.id)}">${u.verified?'снять ✓':'выдать ✓'}</button><button class="tiny danger" data-au="${u.blocked?'unblock':'block'}" data-id="${esc(u.id)}">${u.blocked?'разблок':'блок'}</button></div></div>`).join('');
+  $('#adminCommunities').innerHTML=d.communities.map(c=>`<div class="box"><div class="title">${c.type==='channel'?'📣':'👥'} ${userLine(c)}</div><div class="sub">@${esc(c.username)} · ${communityKind(c)}</div><div class="actions"><button class="tiny ok" data-ac="verifyCommunity" data-id="${esc(c.id)}">${c.verified?'снять ✓':'выдать ✓'}</button>${c.type==='channel'?`<button class="tiny primary" data-ac="pinCommunity" data-id="${esc(c.id)}">закрепить канал</button>`:''}</div></div>`).join('');
+  $('#adminMessages').innerHTML=d.messages.slice().reverse().map(m=>`<div class="adminMsg"><div><b>${esc(m.fromUser?.username||m.from)}</b> → <b>${esc(m.toUser?.username||m.to)}</b> <span class="sub">${when(m.createdAt)} · ${m.readAt?'прочитано':'не прочитано'}</span></div><div>${esc(m.text||'фото')}</div><div class="actions"><button class="tiny ghost" data-fill-reply="${esc(m.id)}" data-from="${esc(m.toUser?.id||'')}" data-to="${esc(m.fromUser?.username||'')}">ответить от имени</button></div></div>`).join('');
+  $('#adminAudit').innerHTML=d.audit.map(a=>`<div class="adminMsg"><b>${esc(a.actorUsername)}</b> ${esc(a.action)}<div class="sub">${new Date(a.createdAt).toLocaleString('ru-RU')}</div></div>`).join('');
+}
+$('#adminModal').onclick=async e=>{
+  const u=e.target.closest('[data-au]');if(u){await api('/api/moderation/action',{method:'POST',body:JSON.stringify({action:u.dataset.au,userId:u.dataset.id,value:u.textContent.includes('выдать'),type:'user'})});return loadAdmin()}
+  const c=e.target.closest('[data-ac]');if(c){await api('/api/moderation/action',{method:'POST',body:JSON.stringify({action:c.dataset.ac,communityId:c.dataset.id,value:c.textContent.includes('выдать')})});await loadPinned();return loadAdmin()}
+  const f=e.target.closest('[data-fill-reply]');if(f){$('#replyId').value=f.dataset.fillReply;$('#replyFrom').value=f.dataset.from;$('#replyTo').value='@'+f.dataset.to;$('#replyAdminText').focus()}
+};
+$('#savePin').onclick=async()=>{await api('/api/moderation/action',{method:'POST',body:JSON.stringify({action:'pin',text:$('#pinText').value})});await loadPinned();toast('Закреплено')};
+$('#sendAdminReply').onclick=async()=>{await api('/api/moderation/action',{method:'POST',body:JSON.stringify({action:'reply',fromUserId:$('#replyFrom').value,to:$('#replyTo').value,text:$('#replyAdminText').value,replyTo:$('#replyId').value})});$('#replyAdminText').value='';toast('Ответ отправлен');loadAdmin()};
+bootstrap();
+</script>
+</body>
+</html>
